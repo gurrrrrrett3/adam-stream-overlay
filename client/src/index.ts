@@ -1,5 +1,6 @@
 import io from 'socket.io-client';
 import { c } from 'vite/dist/node/types.d-aGj9QkWt';
+import SpriteManager from './classes/spriteManager';
 
 const canvas = document.getElementById('canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
@@ -32,6 +33,7 @@ export default class Main {
         ctx.fillStyle = Main.status === 'connected' ? 'green' : 'red';
         ctx.fillText(Main.status, 10, 20);
 
+        SpriteManager.drawSprites(ctx);
 
         requestAnimationFrame(Main.animate);
     }
